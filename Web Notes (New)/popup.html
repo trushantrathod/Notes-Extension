@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="logo-container">
+        <h1 class="title">WebNotes</h1>
+      </div>
+    </div>
+    <div class="style-buttons">
+      <button id="boldButton">B</button>
+      <button id="italicButton">I</button>
+    </div>
+    <textarea id="noteInput" placeholder="Type your note here..."></textarea>
+    <div class="button-container">
+      <button id="saveButton">Save</button>
+      <button id="downloadButton">Download</button>
+    </div>
+    <button id="newNoteButton" class="top-left">+</button>
+  </div>
+  <button id="helpButton" class="bottom-right">?</button>
+
+ <!-- Inside the sidebar -->
+<div id="sidebar" class="sidebar hidden">
+  <button id="closeSidebar" class="close-button">X</button>
+  <h2>Saved Notes</h2>
+  <div id="notesContainer" class="notes-container">
+    <!-- Add your saved notes here -->
+  </div>
+</div>
+
+
+  <!-- Notification -->
+  <div id="notification" class="notification"></div>
+
+  <script src="content.js"></script>
+</body>
+</html>

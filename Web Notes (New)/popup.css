@@ -1,0 +1,257 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* CSS for the logo and title container */
+.header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+/* Styling the container (rest of the styles remain unchanged) */
+.container {
+  width: 450px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  color: #333;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  position: relative;
+}
+
+/* Adjustments for the title */
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ff5722;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  margin: 0;
+  padding: 0;
+}
+.edit-button {
+  background: none;
+  border: none;
+  font-size: 12px;
+  color: #0078d4; /* You can adjust the color as needed */
+  cursor: pointer;
+}
+
+.edit-button:hover {
+  text-decoration: underline;
+}
+
+/* Styling the style buttons */
+.style-buttons {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+/* Styling the common button styles with black color and smaller size */
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 0 5px;
+  color: #000;
+  outline: none;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 8px 15px;
+  border-radius: 5px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+}
+
+/* Adjustments for the bold button */
+#boldButton {
+  font-size: 16px;
+  padding: 6px 12px;
+}
+
+/* Hover effect for buttons - changing color to blue */
+button:hover {
+  background-color: #0078d4;
+  color: #fff;
+  transition: background-color 0.3s ease;
+}
+
+/* Styling the textarea */
+textarea {
+  width: calc(100% - 40px);
+  height: 131px;
+  padding: 10px;
+  margin: 0;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  resize: none;
+  background-color: #ffffff;
+  color: #333;
+}
+
+/* Styling the button container */
+.button-container {
+  display: flex;
+  justify-content: center;
+}
+
+/* Disabled button style */
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Styling the top-left corner button */
+.top-left {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 8px 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Original styles for the "+" button */
+#newNoteButton {
+  background-color: #8194a2;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#newNoteButton:hover {
+  background-color: #005a9e;
+}
+
+/* help button */
+#helpButton {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  margin: 5px;
+  color: #777; 
+  outline: none;
+  text-shadow: 1px 1px 2px rgba(93, 81, 81, 0.5);
+  padding: 6px 10px;
+  border-radius: 50%;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+#helpButton:hover {
+  background-color: #005a9e;
+  color: #fff;
+}
+
+/* Styling for the sidebar (hidden by default) */
+.sidebar {
+  width: 250px;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  right: -250px;
+  background-color: #fff;
+  box-shadow: 0px 0px 10px rgba(255, 0, 0, 0.2);
+  transition: right 0.3s ease;
+  z-index: 1000;
+}
+
+.sidebar h2 {
+  font-size: 18px;
+  margin: 10px;
+  color: #22983f; 
+}
+
+/* Styling for the close button */
+.close-button {
+  position: absolute;
+  top: 5px;
+  right: 5px; 
+  background: none;
+  border: none;
+  font-size: 12px; 
+  color: #ff0000;
+  cursor: pointer;
+}
+
+
+/* Show the sidebar when it's not hidden */
+.sidebar:not(.hidden) {
+  right: 0;
+}
+/* Styling for the delete button */
+.delete-button {
+  background: none;
+  border: none;
+  font-size: 12px; /* Adjust the font size to make the "X" smaller */
+  color: #ff0000;
+  cursor: pointer;
+}
+/* Styling for the notification */
+.notification {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #0078d4;
+  color: #fff;
+  font-size: 14px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  z-index: 1000;
+}
+.note-title {
+  font-size: 12px; /* Increase the font size */
+  font-weight: bold; /* Add a bold style for better visibility */
+  cursor: pointer;
+}
+
+.sidebar {
+  width: 250px;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  right: -250px;
+  background-color: #fff;
+  box-shadow: 0px 0px 10px rgba(255, 0, 0, 0.2);
+  transition: right 0.3s ease;
+  z-index: 1000;
+  overflow-y: auto; /* Enable vertical scrolling */
+  max-height: 100%; /* Set a maximum height */
+}
+
+.notes-container {
+  padding: 10px;
+}
+
+
+
+
+
