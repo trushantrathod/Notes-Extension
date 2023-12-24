@@ -10,6 +10,99 @@ document.addEventListener("DOMContentLoaded", function () {
   const sidebar = document.getElementById("sidebar");
   const closeSidebarButton = document.getElementById("closeSidebar");
   const notification = document.getElementById("notification");
+  const unorderedListButton = document.getElementById("unorderedListButton");
+  const orderedListButton = document.getElementById("orderedListButton");
+  const textColorPicker = document.getElementById("textColorPicker");
+
+  
+  textColorPicker.addEventListener("input", function () {
+    const selectedColor = textColorPicker.value;
+    noteInput.style.color = selectedColor;
+  });
+  
+  let orderedListCounter = 1; // Initialize the counter
+
+  orderedListButton.addEventListener("click", function () {
+    const cursorPos = noteInput.selectionStart;
+    const text = noteInput.value;
+    const listText = `${orderedListCounter}. List item\n`; // Use the counter
+    orderedListCounter++; // Increment the counter
+    const updatedText = text.substring(0, cursorPos) + listText + text.substring(cursorPos);
+    noteInput.value = updatedText;
+    applyOrderedListItem();
+  });
+
+  function applyOrderedListItem() {
+    const cursorPos = noteInput.selectionStart;
+    const text = noteInput.value;
+  
+    // Split the text into lines
+    const lines = text.split('\n');
+  
+    // Find the highest existing number in the ordered list
+    let highestNumber = 0;
+    lines.forEach((line) => {
+      const match = line.trim().match(/^\d+\./);
+      if (match) {
+        const number = parseInt(match[0], 10);
+        if (number > highestNumber) {
+          highestNumber = number;
+        }
+      }
+    });
+  
+    // Create a new text with ordered list format
+    const updatedText = lines.map((line, index) => {
+      const trimmedLine = line.trim();
+      if (trimmedLine.match(/^\d+\./)) {
+        return line; // Preserve existing ordered list lines
+      } else if (trimmedLine !== '') {
+        // Add the number and a period at the beginning of non-empty lines
+        const numberedLine = `${highestNumber + index + 1}. ${trimmedLine}`;
+        return numberedLine;
+      } else {
+        // Preserve empty lines
+        return line;
+      }
+    }).join('\n');
+  
+    // Update the text in the textarea
+    noteInput.value = updatedText;
+  }
+  
+  
+  
+  
+  
+
+  underlineButton.addEventListener("click", function () {
+    toggleUnderlineStyle();
+  });
+
+  function toggleUnderlineStyle() {
+    noteInput.style.textDecoration = noteInput.style.textDecoration === "underline" ? "none" : "underline";
+  }
+  
+
+  unorderedListButton.addEventListener("click", function () {
+    // Add an unordered list item at the cursor position
+    const cursorPos = noteInput.selectionStart;
+    const text = noteInput.value;
+    const listText = '- List item\n'; // Customize this as needed
+    const updatedText = text.substring(0, cursorPos) + listText + text.substring(cursorPos);
+    noteInput.value = updatedText;
+  });
+
+  orderedListButton.addEventListener("click", function () {
+    // Add an ordered list item at the cursor position
+    const cursorPos = noteInput.selectionStart;
+    const text = noteInput.value;
+    const listText = '1. List item\n'; // Customize this as needed
+    const updatedText = text.substring(0, cursorPos) + listText + text.substring(cursorPos);
+    noteInput.value = updatedText;
+  });
+
+  // ... (Your existing code)
 
   newNoteButton.addEventListener("click", function () {
     sidebar.classList.remove("hidden");
