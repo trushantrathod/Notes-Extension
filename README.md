@@ -1,6 +1,6 @@
 # Notes-Extension
 
-Welcome to the Notes-Extension, a versatile note-taking app designed for your convenience. Whether you're managing projects or jotting down quick notes, this extension provides a simple and effective solution. If you have any questions about the code, feel free to email me at trushantrathod95@gmail.com. Updates may be made in the future as needed.
+Welcome to the Notes-Extension, a versatile note-taking app designed for your convenience. Whether you're managing projects or jotting down quick notes, this extension provides a simple and effective solution. If you have any questions about the code, feel free to email me at trushantrathod@gmail.com. Updates may be made in the future as needed.
 
 ## Getting Started
 
